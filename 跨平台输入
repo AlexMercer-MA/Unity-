@@ -1,0 +1,8 @@
+
+Unity多平台输入共用一份代码的时候，可以加#if进行区分  
+
+#if UNITY_IOS || UNITY_ANDROID  
+touch code  
+#else  
+non-touch code  
+#endif  
