@@ -1,8 +1,39 @@
 
-Unity多平台输入共用一份代码的时候，可以加#if进行区分  
+Unity多平台输入共用一份代码的时候，可以加#if进行区分
+如果#if #endif之间的代码变为灰色，说明当前所选择的build平台不符合这个if语句中指定的平台类型
 
-#if UNITY_IOS || UNITY_ANDROID  
-touch code  
-#else  
-non-touch code  
-#endif  
+例子：
+#if UNITY_IOS || UNITY_ANDROID
+touch code
+#else
+non-touch code
+#endif
+
+区分不同运行平台
+UNITY_EDITOR	#define directive for calling Unity Editor scripts from your game code.
+UNITY_EDITOR_WIN	#define directive for Editor code on Windows.
+UNITY_EDITOR_OSX	#define directive for Editor code on Mac OS X.
+
+UNITY_STANDALONE	#define directive for compiling/executing code for any standalone platform (Mac OS X, Windows or Linux).
+UNITY_STANDALONE_WIN	#define directive for compiling/executing code specifically for Windows standalone applications.
+UNITY_STANDALONE_OSX	#define directive for compiling/executing code specifically for Mac OS X (including Universal, PPC and Intel architectures).
+
+UNITY_IOS	#define directive for compiling/executing code for the iOS platform.
+UNITY_IPHONE	Deprecated. Use UNITY_IOS instead.
+UNITY_ANDROID	#define directive for the Android platform.
+
+UNITY_PS4	#define directive for running PlayStation 4 code.
+UNITY_XBOXONE	#define directive for executing Xbox One code.
+UNITY_WEBGL	#define directive for WebGL.
+UNITY_FACEBOOK	#define directive for the Facebook platform (WebGL or Windows standalone).
+UNITY_ADS	#define directive for calling Unity Ads methods from your game code. Version 5.2 and above.
+
+区分不同Unity版本
+UNITY_5	#define directive for the release version of Unity 5, exposed in every 5.X.Y release.
+UNITY_5_0	#define directive for the major version of Unity 5.0, exposed in every 5.0.Z release.
+UNITY_5_0_1	#define directive for the minor version of Unity 5.0.1.
+Starting from Unity 5.3.4, you can compile code selectively based on the earliest version of Unity required to compile or execute a given portion of code. Given the same version format as above (X.Y.Z), Unity exposes one global #define in the format UNITY_X_Y_OR_NEWER, that can be used for this purpose.
+
+参考
+https://answers.unity.com/questions/1440969/if-unity-ios-visual-studio-for-mac-goes-nuts-over.html
+https://docs.unity3d.com/Manual/PlatformDependentCompilation.html
