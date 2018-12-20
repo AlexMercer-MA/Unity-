@@ -1,8 +1,11 @@
 
 Unity多平台输入共用一份代码的时候，可以加#if进行区分
-如果#if #endif之间的代码变为灰色，说明当前所选择的build平台不符合这个if语句中指定的平台类型
 
-例子：
+--代码变灰失去智能提示的原因
+如果#if #endif之间的代码变为灰色且失去智能提示，说明当前所选择的build平台不符合这个if语句中指定的平台类型
+只有#if #endif符合当前build setting里通过左下角switch platform选中的平台类型，其中的代码才会保留智能提示
+
+--例子：
 #if UNITY_IOS || UNITY_ANDROID
 touch code
 #else
